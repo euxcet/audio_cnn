@@ -7,3 +7,6 @@ __pycache__/
 *.wav
 *.pth
 *.png
+.*.swp
+log/
+log*

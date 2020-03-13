@@ -37881,3 +37881,12 @@ Iteration: 12624 Loss: tensor(0.0008, device='cuda:0', grad_fn=<BinaryCrossEntro
 (2488, 527) (2488, 527)
 MAP: 0.20949613865587285 AUC: 0.8093019873328996
 Iteration: 12625 Loss: tensor(0.0008, device='cuda:0', grad_fn=<BinaryCrossEntropyBackward>)
+(2488, 527) (2488, 527)
+MAP: 0.20994056323302618 AUC: 0.8098276560306864
+Iteration: 12626 Loss: tensor(0.0013, device='cuda:0', grad_fn=<BinaryCrossEntropyBackward>)
+(2488, 527) (2488, 527)
+MAP: 0.21032188403514115 AUC: 0.8098585123011695
+Iteration: 12627 Loss: tensor(0.0006, device='cuda:0', grad_fn=<BinaryCrossEntropyBackward>)
+(2488, 527) (2488, 527)
+MAP: 0.2113949506462024 AUC: 0.8103929182770347
+Iteration: 12628 Loss: tensor(0.0009, device='cuda:0', grad_fn=<BinaryCrossEntropyBackward>)
