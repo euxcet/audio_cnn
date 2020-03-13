@@ -1,0 +1,29 @@
+Number of classes: 527
+Number of trainable parameters: 4837455
+hdf5/meta/balanced_train.h5 hdf5/wav/balanced_train.h5
+hdf5/meta/eval.h5 hdf5/wav/eval.h5
+Number of GPU: 1
+(2488, 527) (2488, 527)
+MAP: 0.0284013138228393 AUC: 0.5203112737011213
+Iteration: 0 Loss: tensor(0.9827, device='cuda:0', grad_fn=<BinaryCrossEntropyBackward>)
+(2488, 527) (2488, 527)
+MAP: 0.02991580924900426 AUC: 0.5050582702356775
+Iteration: 1 Loss: tensor(0.6632, device='cuda:0', grad_fn=<BinaryCrossEntropyBackward>)
+(2488, 527) (2488, 527)
+MAP: 0.029175216544334314 AUC: 0.510330679496823
+Iteration: 2 Loss: tensor(0.4782, device='cuda:0', grad_fn=<BinaryCrossEntropyBackward>)
+(2488, 527) (2488, 527)
+MAP: 0.028680348808722608 AUC: 0.5143690573848059
+Iteration: 3 Loss: tensor(0.3055, device='cuda:0', grad_fn=<BinaryCrossEntropyBackward>)
+(2488, 527) (2488, 527)
+MAP: 0.027241897301527658 AUC: 0.5183945406790269
+Iteration: 4 Loss: tensor(0.1759, device='cuda:0', grad_fn=<BinaryCrossEntropyBackward>)
+(2488, 527) (2488, 527)
+MAP: 0.024805195351523916 AUC: 0.5182188025964773
+Iteration: 5 Loss: tensor(0.0854, device='cuda:0', grad_fn=<BinaryCrossEntropyBackward>)
+(2488, 527) (2488, 527)
+MAP: 0.024427634323946065 AUC: 0.5070107709841992
+Iteration: 6 Loss: tensor(0.0449, device='cuda:0', grad_fn=<BinaryCrossEntropyBackward>)
+(2488, 527) (2488, 527)
+MAP: 0.024723842300930377 AUC: 0.5006768136140041
+Iteration: 7 Loss: tensor(0.0262, device='cuda:0', grad_fn=<BinaryCrossEntropyBackward>)

@@ -47,16 +47,32 @@ class Sampler(object):
         self.num_sample = self.target.shape[0]
         self.num_class = self.target.shape[1]
         self.index_in_class = [np.where(self.target[:, i] == 1)[0] for i in range(self.num_class)]
-        self.current = [0 for i in range(self.num_class)]
         self.len_index_in_class = [len(self.index_in_class[i]) for i in range(self.num_class)]
+        self.current = [0 for i in range(self.num_class)]
         self.random_state = np.random.RandomState(0)
+        self.class_id = np.arange(self.num_class)
+        self.random_state.shuffle(self.class_id)
+        self.pos = 0
+
+    def state_dict(self):
+        return {
+            'pos': self.pos,
+            'class_id': self.class_id,
+            'current': self.current
+        }
+
+    def load_state_dict(self, state):
+        self.pos = state['pos']
+        self.class_id = state['class_id']
+        self.current = state['current']
 
     def choose_class(self):
-        class_id = np.arange(self.num_class)
         while True:
-            self.random_state.shuffle(class_id)
-            for id in class_id:
-                yield id
+            while self.pos < len(self.class_id):
+                self.pos += 1
+                yield self.class_id[self.pos - 1]
+            self.random_state.shuffle(self.class_id)
+            self.pos = 0 
 
     def __len__(self):
         return 0
@@ -72,6 +88,24 @@ class Sampler(object):
                 if len(index) == self.batch_size:
                     yield index
                     index = []
+
+class OrderedSampler(object):
+    def __init__(self, meta_hdf5_path, batch_size):
+        self.batch_size = batch_size
+        with h5py.File(meta_hdf5_path, 'r') as f:
+            self.audio_name = list(map(lambda x: x.decode(), f['audio_name']))
+
+    def __iter__(self):
+        index = []
+        for i in range(len(self.audio_name)):
+            if self.audio_name[i] != '' and self.audio_name[i] is not None:
+                index.append(i)
+            if len(index) == self.batch_size:
+                yield index
+                index = []
+        if len(index) > 0:
+            yield index
+
 
 class Collator(object):
     def __init__(self):
